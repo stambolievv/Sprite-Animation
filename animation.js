@@ -15,6 +15,7 @@ const frameWidth = 575; // width ÷ columns
 const frameHeight = 523; // height ÷ rows
 const spriteAnimation = [];
 const animationState = [
+    // adding manually
     // {
     //     name: 'name',  // give a name of the sprite sheet in the row 
     //     frames: 'length' // set the number of sprites in the row
@@ -75,6 +76,7 @@ const result = animationState.forEach((state, row) => {
     spriteAnimation[state.name] = frames;
 });
 
+// game animation loop
 function animate(timestamp) {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
@@ -90,5 +92,6 @@ function animate(timestamp) {
     }, 1000 / fps);
 }
 
+// event listeners
 document.getElementById('animations').addEventListener('change', (e) => state = e.target.value);
 window.addEventListener('DOMContentLoaded', animate(0))
