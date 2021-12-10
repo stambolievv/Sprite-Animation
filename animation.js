@@ -13,8 +13,8 @@ const staggerFrame = 100;
 
 const frameWidth = 575; // width ÷ columns 
 const frameHeight = 523; // height ÷ rows
-const spriteAnimation = [];
-const animationState = [
+const spriteAnimations = {};
+const animationStates = [
     // adding manually
     // {
     //     name: 'name',  // give a name of the sprite sheet in the row 
@@ -62,9 +62,17 @@ const animationState = [
     },
 ];
 
-// convert animationState array to easy to use spriteAnimation array
-// each frame with its x and y coordinates
-const result = animationState.forEach((state, row) => {
+// convert manually created "animationStates" array to easy to use "spriteAnimations" object
+// each state have a location array with every frame x and y coordinates
+// {
+//     name: {
+//         loc: [
+//             { x: 0, y: 0 },
+//             { x: 1, y: 1 }
+//         ]
+//     }
+// }
+const result = animationStates.forEach((state, row) => {
     const frames = { loc: [] };
 
     for (let col = 0; col < state.frames; col++) {
@@ -73,16 +81,18 @@ const result = animationState.forEach((state, row) => {
         frames.loc.push({ x: positionX, y: positionY });
     }
 
-    spriteAnimation[state.name] = frames;
+    spriteAnimations[state.name] = frames;
 });
+
+console.log(spriteAnimations);
 
 // game animation loop
 function animate(timestamp) {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-    const position = Math.floor(timestamp / staggerFrame) % spriteAnimation[state].loc.length;
-    const frameX = spriteAnimation[state].loc[position].x;
-    const frameY = spriteAnimation[state].loc[position].y;
+    const position = Math.floor(timestamp / staggerFrame) % spriteAnimations[state].loc.length;
+    const frameX = spriteAnimations[state].loc[position].x;
+    const frameY = spriteAnimations[state].loc[position].y;
 
     // ctx.drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh); s <=> source; d <=> destination
     ctx.drawImage(image, frameX, frameY, frameWidth, frameHeight, 0, 0, frameWidth, frameHeight);
