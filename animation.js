@@ -14,8 +14,8 @@ const frameHeight = 523; // height ÷ rows
 const spriteAnimation = [];
 const animationState = [
     // {
-    //     name: 'name',  // name of the sprite sheet in the row 
-    //     frames: 'length' // number of sprites in the row
+    //     name: 'name',  // give a name of the sprite sheet in the row 
+    //     frames: 'length' // set the number of sprites in the row
     // },
     {
         name: 'idle',
@@ -59,6 +59,8 @@ const animationState = [
     },
 ];
 
+// convert animationState array to easy to use spriteAnimation array
+// each frame with its x and y coordinates
 const result = animationState.forEach((state, row) => {
     const frames = { loc: [] };
 
@@ -79,19 +81,10 @@ function animate(timestamp) {
     const frameY = spriteAnimation[state].loc[position].y;
 
     // ctx.drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh); s <=> source; d <=> destination
-    ctx.drawImage(
-        image,
-        frameX,
-        frameY,
-        frameWidth,
-        frameHeight,
-        0,
-        0,
-        frameWidth,
-        frameHeight
-    );
+    ctx.drawImage(image, frameX, frameY, frameWidth, frameHeight, 0, 0, frameWidth, frameHeight);
 
     requestAnimationFrame(animate);
 }
+
 document.getElementById('animations').addEventListener('change', (e) => state = e.target.value);
 window.addEventListener('DOMContentLoaded', animate(0))
