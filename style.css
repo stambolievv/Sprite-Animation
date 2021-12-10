@@ -5,6 +5,8 @@
   transform: translate(-50%, -50%);
   width: 600px;
   height: 600px;
+  border: black 3px solid;
+  border-radius: 5px;
 }
 
 .dropdown {
