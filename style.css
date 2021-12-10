@@ -1,0 +1,37 @@
+#canvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+}
+
+.dropdown {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 20px;
+  background-color: LightSlateGrey;
+}
+
+.dropdown select {
+  background-color: LightSteelBlue;
+  padding: 0.5em;
+  padding-right: 2.5em;
+  border: 0;
+  text-indent: 1px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dropdown,
+option,
+select {
+  font-size: 22px;
+  font-family: cursive;
+  padding: 0.5em;
+}
