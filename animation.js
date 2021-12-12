@@ -84,8 +84,6 @@ const result = animationStates.forEach((state, row) => {
     spriteAnimations[state.name] = frames;
 });
 
-console.log(spriteAnimations);
-
 // game animation loop
 function animate(timestamp) {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
