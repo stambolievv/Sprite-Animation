@@ -3,8 +3,6 @@ const ctx = canvas.getContext('2d');
 canvas.width = 600;
 canvas.height = 600;
 
-const fps = 60;
-
 const image = new Image();
 image.src = 'shadow_dog.png';
 
@@ -95,11 +93,9 @@ function animate(timestamp) {
     // ctx.drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh); s <=> source; d <=> destination
     ctx.drawImage(image, frameX, frameY, frameWidth, frameHeight, 0, 0, frameWidth, frameHeight);
 
-    setTimeout(() => {
-        requestAnimationFrame(animate);
-    }, 1000 / fps);
+    requestAnimationFrame(animate);
 }
 
 // event listeners
 document.getElementById('animations').addEventListener('change', (e) => state = e.target.value);
-window.addEventListener('DOMContentLoaded', animate(0))
+image.addEventListener('DOMContentLoaded', animate(0))
