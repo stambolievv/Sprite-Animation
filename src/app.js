@@ -4,7 +4,7 @@ canvas.width = 600;
 canvas.height = 600;
 
 const image = new Image();
-image.src = '../assets/images/shadow_dog.png';
+image.src = 'assets/images/shadow_dog.png';
 
 let state = 'idle';
 const staggerFrame = 100;
