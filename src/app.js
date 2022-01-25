@@ -15,11 +15,11 @@ const frameWidth = 575; // width ÷ columns
 const frameHeight = 523; // height ÷ rows
 const spriteAnimations = {};
 const animationStates = [
-    // adding manually
-    // {
-    //     name: 'name',  // give a name of the sprite sheet in the row 
-    //     frames: 'length' // set the number of sprites in the row
-    // },
+    // Adding manually!
+    /*{
+        name: 'name',  // give a name of the sprite sheet in the row 
+        frames: 'length' // set the number of sprites in the row
+    }*/
     {
         name: 'idle',
         frames: 7
@@ -62,16 +62,18 @@ const animationStates = [
     },
 ];
 
-// convert manually created "animationStates" array to easy to use "spriteAnimations" object
-// each state have a location array with every frame x and y coordinates
-// {
-//     name: {
-//         loc: [
-//             { x: 0, y: 0 },
-//             { x: 1, y: 1 }
-//         ]
-//     }
-// }
+/* 
+Convert manually created "animationStates" array to easy to use "spriteAnimations" object.
+Each state have a location array with every frame x and y coordinates.
+{
+    name: {
+        loc: [
+            { x: 0, y: 0 },
+            { x: 1, y: 1 }
+        ]
+    }
+} 
+*/
 const result = animationStates.forEach((state, row) => {
     const frames = { loc: [] };
 
@@ -100,6 +102,8 @@ function animate(timestamp) {
     }, 1000 / fps);
 }
 
-// event listeners
+//?    /////////////////////////
+//?   //// EVENT LISTENERS ////
+//?  /////////////////////////
 document.getElementById('animations').addEventListener('change', (e) => state = e.target.value);
 window.addEventListener('DOMContentLoaded', animate(0));
