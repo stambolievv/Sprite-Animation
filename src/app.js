@@ -6,7 +6,7 @@ canvas.height = 600;
 const fps = 60;
 
 const image = new Image();
-image.src = 'shadow_dog.png';
+image.src = '../assets/images/shadow_dog.png';
 
 let state = 'idle';
 const staggerFrame = 100;
@@ -86,7 +86,7 @@ const result = animationStates.forEach((state, row) => {
 
 // game animation loop
 function animate(timestamp) {
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     const position = Math.floor(timestamp / staggerFrame) % spriteAnimations[state].loc.length;
     const frameX = spriteAnimations[state].loc[position].x;
@@ -102,4 +102,4 @@ function animate(timestamp) {
 
 // event listeners
 document.getElementById('animations').addEventListener('change', (e) => state = e.target.value);
-window.addEventListener('DOMContentLoaded', animate(0))
+window.addEventListener('DOMContentLoaded', animate(0));
