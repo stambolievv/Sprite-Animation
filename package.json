@@ -1,0 +1,28 @@
+{
+  "name": "sprite-animation",
+  "version": "1.0.0",
+  "description": "Showcase basic canvas sprite animation!",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stambolievv/Sprite-Animation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stambolievv/Sprite-Animation/issues"
+  },
+  "keywords": [
+    "sprite",
+    "animation",
+    "canvas",
+    "html5-canvas"
+  ],
+  "author": "DKS",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.6.0",
+    "git": "^0.1.5"
+  }
+}
